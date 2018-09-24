@@ -1,0 +1,2 @@
+# Voice-Based-Email-For-Blind-People
+SPEECH TO TEXT RECOGNITION TO HELP BLIND PEOPLE
