@@ -2,7 +2,7 @@
 <LinearLayout
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#faa519"
+    android:background="#ffffff"
     android:orientation="vertical"
     android:onClick = "layoutClicked"
     xmlns:android="http://schemas.android.com/apk/res/android">
@@ -10,14 +10,14 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="48dp"
-        android:background="#e8e8e7"
+        android:background="#000000"
         android:orientation="horizontal"
         android:layout_alignParentTop="true">
 
         <TextView android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Current Status"
-            android:textColor="#2582C5"
+            android:textColor="#ffffff"
             android:layout_marginLeft="25dp"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -29,55 +29,66 @@
     </RelativeLayout>
 
 
-    <LinearLayout android:layout_width="fill_parent"
+    <LinearLayout
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:layout_alignParentEnd="true"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="30dp"
-        android:orientation="vertical"
-        android:background="@drawable/graybackground">
+        android:background="@drawable/graybackground"
+        android:orientation="vertical">
 
-        <ImageView android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:background="@drawable/voicemail"
+        <ImageView
+            android:layout_width="216dp"
+            android:layout_height="239dp"
+            android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            android:layout_gravity="center_horizontal"/>
+            android:layout_weight="@android:integer/config_longAnimTime"
+            android:background="@drawable/mail" />
 
-        <TextView android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:text="To:"
-            android:textColor="#4C4D4F"
-            android:background="#f3f3f3"
-            android:paddingTop="7dp"
-            android:paddingLeft="7dp"
+        <TextView
             android:id="@+id/to"
-            android:layout_marginTop="30dp"/>
-        <TextView android:layout_width="fill_parent"
+            android:layout_width="fill_parent"
             android:layout_height="45dp"
-            android:text="Subject:"
+            android:layout_marginTop="30dp"
             android:background="#f3f3f3"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="To:"
+            android:textColor="#4C4D4F" />
+
+        <TextView
             android:id="@+id/subject"
-            android:paddingTop="7dp"
-            android:textColor="#4C4D4F"
-            android:paddingLeft="7dp"
-            android:layout_marginTop="15dp"/>
-        <TextView android:layout_width="fill_parent"
-            android:layout_height="130dp"
-            android:text="Message:"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
             android:background="#f3f3f3"
-            android:id="@+id/message"
-            android:paddingTop="7dp"
-            android:textColor="#4C4D4F"
             android:paddingLeft="7dp"
-            android:layout_marginTop="15dp"/>
-        <Button android:layout_width="190dp"
+            android:paddingTop="7dp"
+            android:text="Subject:"
+            android:textColor="#4C4D4F" />
+
+        <TextView
+            android:id="@+id/message"
+            android:layout_width="fill_parent"
+            android:layout_height="130dp"
+            android:layout_marginTop="15dp"
+            android:background="#f3f3f3"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="Message:"
+            android:textColor="#4C4D4F" />
+
+        <Button
+            android:layout_width="190dp"
             android:layout_height="38dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
+            android:background="@drawable/btn"
             android:text="submit"
-            android:textColor="#fff"
-            android:background="@drawable/btn"/>
+            android:textColor="#fff" />
 
     </LinearLayout>
 

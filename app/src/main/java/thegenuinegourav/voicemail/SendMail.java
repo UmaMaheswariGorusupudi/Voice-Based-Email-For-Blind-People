@@ -2,26 +2,23 @@ package thegenuinegourav.voicemail;
 
 import javax.mail.Session;
 
-        import android.app.ProgressDialog;
-        import android.content.Context;
-        import android.os.AsyncTask;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.os.AsyncTask;
 import android.speech.tts.TextToSpeech;
 import android.widget.Toast;
 
 import java.util.Locale;
 import java.util.Properties;
 
-        import javax.mail.Message;
-        import javax.mail.MessagingException;
-        import javax.mail.PasswordAuthentication;
-        import javax.mail.Session;
-        import javax.mail.Transport;
-        import javax.mail.internet.InternetAddress;
-        import javax.mail.internet.MimeMessage;
+import javax.mail.Message;
+import javax.mail.MessagingException;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
-/**
- * Created by Belal on 10/30/2015.
- */
+
 
 //Class is extending AsyncTask because this class is going to perform a networking operation
 public class SendMail extends AsyncTask<Void,Void,Void> {

@@ -69,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         if (tts != null) {
+
             tts.stop();
             tts.shutdown();
         }
@@ -151,18 +152,18 @@ public class MainActivity extends AppCompatActivity {
                             speak("Give ur mail address");
                             break;
                         case 4 :
-                             Config.EMAIL=result.get(0);
+                             //Config.EMAIL=result.get(0);
                              status.setText("password");
                              speak("provide ur pasword");
                              break;
                         case 5 :
-                            Config.PASSWORD =result.get(0);
+                            //Config.PASSWORD =result.get(0);
                             status.setText("Confirm?");
                             speak("Please Confirm the mail\n To : " + To.getText().toString() + "\nSubject : " + Subject.getText().toString() + "\nMessage : " + Message.getText().toString() +"your mail "+Config.EMAIL+"your password" +Config.PASSWORD + "\nSpeak Yes to confirm");
                             break;
 
                         default:
-                            if(result.get(0).equals("yes"))
+                            if(result.get(0).equals("yes")||result.get(0).equals("s"))
                             {
                                 status.setText("Sending");
                                 speak("Sending the mail");
