@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextToSpeech tts;
     private TextView status;
-    private TextView To,Subject,Message;
+    private TextView To,Subject,Message,From,Password;
     private int numberOfClicks;
     private boolean IsInitialVoiceFinshed;
 
@@ -37,13 +37,13 @@ public class MainActivity extends AppCompatActivity {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "This Language is not supported");
                     }
-                    speak("Welcome to voice mail. Tell me the mail address to whom you want to send mail?");
+                    speak("Welcome to voice mail. Tell me the mail address to whom you want to send mail? or cancel to close the application .for Example : spell santosh@gmail.com as s a n t o s h @gmail.com");
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             IsInitialVoiceFinshed=true;
                         }
-                    }, 6000);
+                    }, 10000);
                 } else {
                     Log.e("TTS", "Initilization Failed!");
                 }
@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
         To = (TextView) findViewById(R.id.to);
         Subject  =(TextView)findViewById(R.id.subject);
         Message = (TextView) findViewById(R.id.message);
+        From = (TextView)findViewById(R.id.from);
+        Password =(TextView)findViewById((R.id.password));
         numberOfClicks = 0;
     }
 
@@ -134,30 +136,32 @@ public class MainActivity extends AppCompatActivity {
                             String to;
                             to= result.get(0).replaceAll("underscore","_");
                             to = to.replaceAll("\\s+","");
-                            to = to + "@gmail.com";
                             To.setText(to);
                             status.setText("Subject?");
                             speak("What should be the subject?");
-
                             break;
                         case 2:
-
                             Subject.setText(result.get(0));
                             status.setText("Message?");
                             speak("Give me message");
                             break;
                         case 3:
                             Message.setText(result.get(0));
-                            status.setText("ur mail");
+                            status.setText("Your mail?");
                             speak("Give ur mail address");
                             break;
                         case 4 :
-                             //Config.EMAIL=result.get(0);
-                             status.setText("password");
+                            String from;
+                            from= result.get(0).replaceAll("underscore","_");
+                            from = from.replaceAll("\\s+","");
+                             From.setText(from);
+                             status.setText("password?");
                              speak("provide ur pasword");
                              break;
                         case 5 :
-                            //Config.PASSWORD =result.get(0);
+                            String pwd;
+                            pwd = result.get(0).replaceAll("\\s+","");
+                            Password.setText(pwd);
                             status.setText("Confirm?");
                             speak("Please Confirm the mail\n To : " + To.getText().toString() + "\nSubject : " + Subject.getText().toString() + "\nMessage : " + Message.getText().toString() +"your mail "+Config.EMAIL+"your password" +Config.PASSWORD + "\nSpeak Yes to confirm");
                             break;

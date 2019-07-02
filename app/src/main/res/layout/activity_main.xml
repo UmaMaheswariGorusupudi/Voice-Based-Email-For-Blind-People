@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="#ffffff"
     android:orientation="vertical"
     android:onClick = "layoutClicked"
     xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
 
     <RelativeLayout
         android:layout_width="fill_parent"
@@ -41,12 +47,10 @@
         android:orientation="vertical">
 
         <ImageView
-            android:layout_width="216dp"
-            android:layout_height="239dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="15dp"
-            android:layout_weight="@android:integer/config_longAnimTime"
-            android:background="@drawable/mail" />
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="57dp"
+            app:srcCompat="@drawable/mail" />
 
         <TextView
             android:id="@+id/to"
@@ -79,6 +83,26 @@
             android:paddingLeft="7dp"
             android:paddingTop="7dp"
             android:text="Message:"
+            android:textColor="#4C4D4F" />
+        <TextView
+            android:id="@+id/from"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="#f3f3f3"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="From:"
+            android:textColor="#4C4D4F" />
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="fill_parent"
+            android:layout_height="45dp"
+            android:layout_marginTop="15dp"
+            android:background="#f3f3f3"
+            android:paddingLeft="7dp"
+            android:paddingTop="7dp"
+            android:text="Password:"
             android:textColor="#4C4D4F" />
 
         <Button
