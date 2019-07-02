@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                     if (result == TextToSpeech.LANG_MISSING_DATA || result == TextToSpeech.LANG_NOT_SUPPORTED) {
                         Log.e("TTS", "This Language is not supported");
                     }
-                    speak("Welcome to voice mail. Tell me the mail address to whom you want to send mail? or cancel to close the application .for Example : spell santosh@gmail.com as s a n t o s h @gmail.com");
+                    speak("Tell me the mail address to whom you want to send mail? or cancel to close the application .for Example : spell santosh@gmail.com as s a n t o s h @gmail.com");
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
