@@ -154,7 +154,7 @@ public class MainActivity extends AppCompatActivity {
                             String from;
                             from= result.get(0).replaceAll("underscore","_");
                             from = from.replaceAll("\\s+","");
-                            Config.EMAIL=from;
+                             Config.EMAIL=from;
                              From.setText(from);
                              status.setText("password?");
                              speak("provide ur pasword");
