@@ -1,4 +1,4 @@
-![Voicemail Logo](\app\src\main\res\drawable\mail.png)  
+![Voicemail Logo](/app/src/main/res/drawable/mail.png)  
 #Voicemail  
   
 ####__*Voice Based Email for (Blinds?)*__
@@ -18,13 +18,13 @@ Just tap on the screen to answer the corresponding question framed by Voicemail.
 4. Android Studio
   
 ###ScreenShots  
-![Screenshot1](/screenshots/Screenshot1.png)  
+![Screenshot1](/screenshots/Screenshot1.jpg)  
   
   
-![Screenshot3](/screenshots/Screenshot3.png)  
+![Screenshot3](/screenshots/Screenshot3.jpg)  
   
   
-![Screenshot2](/screenshots/Screenshot2.png)  
+![Screenshot2](/screenshots/Screenshot2.jpg)  
   
   
   
