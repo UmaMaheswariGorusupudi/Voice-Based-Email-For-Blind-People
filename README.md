@@ -18,13 +18,13 @@ Just tap on the screen to answer the corresponding question framed by Voicemail.
 4. Android Studio
   
 ###ScreenShots  
-![Screenshot1](/screenshots/screenshot1.png)  
+![Screenshot1](/screenshots/Screenshot1.png)  
   
   
-![Screenshot3](/screenshots/screenshot3.png)  
+![Screenshot3](/screenshots/Screenshot3.png)  
   
   
-![Screenshot2](/screenshots/screenshot2.png)  
+![Screenshot2](/screenshots/Screenshot2.png)  
   
   
   
