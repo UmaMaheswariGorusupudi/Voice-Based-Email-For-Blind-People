@@ -154,6 +154,7 @@ public class MainActivity extends AppCompatActivity {
                             String from;
                             from= result.get(0).replaceAll("underscore","_");
                             from = from.replaceAll("\\s+","");
+                            Config.EMAIL=from;
                              From.setText(from);
                              status.setText("password?");
                              speak("provide ur pasword");
@@ -161,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                         case 5 :
                             String pwd;
                             pwd = result.get(0).replaceAll("\\s+","");
+                            Config.PASSWORD = pwd;
                             Password.setText(pwd);
                             status.setText("Confirm?");
                             speak("Please Confirm the mail\n To : " + To.getText().toString() + "\nSubject : " + Subject.getText().toString() + "\nMessage : " + Message.getText().toString() +"your mail "+Config.EMAIL+"your password" +Config.PASSWORD + "\nSpeak Yes to confirm");
