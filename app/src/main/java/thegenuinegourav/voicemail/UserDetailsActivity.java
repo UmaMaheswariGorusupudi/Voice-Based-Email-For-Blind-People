@@ -28,7 +28,7 @@ public class UserDetailsActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_user_details);
         IsInitialVoiceFinshed = false ;
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
@@ -39,11 +39,20 @@ public class UserDetailsActivity extends AppCompatActivity {
                         Log.e("TTS", "This Language is not supported");
                     }
                     speak("Welcome to voice mail");
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                        }
-                    }, 1000);
+                    //status.setText("Mail?");
+                    if (userLocalStore.getLoggedInUser() == null){
+                       new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                speak("Tell me your mail address? or cancel to close the application ");
+                                IsInitialVoiceFinshed = true;
+                            }
+                        }, 4000);
+                    }
+                    else {
+                        SpeakOutDetails();
+                    }
+
                 } else {
                     Log.e("TTS", "Initilization Failed!");
                 }
@@ -61,21 +70,27 @@ public class UserDetailsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if (userLocalStore.getLoggedInUser() == null){
-            speak("Tell me your mail address? or cancel to close the application ");
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    status.setText("Mail?");
-                    IsInitialVoiceFinshed = true;
-                }
-            }, 4000);
-        }
-        else {
 
-
-        }
     }
+
+
+    private void SpeakOutDetails(){
+
+
+        User user = userLocalStore.getLoggedInUser();
+        From.setText(user.username);
+        Password.setText((user.password));
+        speak(" your Mail is" + user.username + "and your Password is" + user.password + " say yes to confirm and proceed and no to change the mail and cancel to ");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                status.setText("Mail?");
+                IsInitialVoiceFinshed = true;
+                numberOfClicks = 2;
+            }
+        }, 4000);
+    }
+
     private void speak(String text){
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -164,6 +179,8 @@ public class UserDetailsActivity extends AppCompatActivity {
                                  User user;
                                  String username = From.getText().toString();
                                  String password = Password.getText().toString();
+                                 Config.EMAIL = username;
+                                 Config.PASSWORD = password;
 
                                  user = new User(username, password);
                                  userLocalStore.storeUserData(user);
@@ -173,6 +190,7 @@ public class UserDetailsActivity extends AppCompatActivity {
                                  finish();
                              }else
                              {
+                                 userLocalStore.clearUserData();
                                  status.setText("Mail?");
                                  speak("Please provide your Mail?");
                                  new Handler().postDelayed(new Runnable() {

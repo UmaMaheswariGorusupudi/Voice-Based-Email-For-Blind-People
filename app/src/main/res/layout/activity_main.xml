@@ -84,26 +84,6 @@
             android:paddingTop="7dp"
             android:text="Message:"
             android:textColor="#4C4D4F" />
-        <TextView
-            android:id="@+id/from"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:background="#f3f3f3"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:text="From:"
-            android:textColor="#4C4D4F" />
-        <TextView
-            android:id="@+id/password"
-            android:layout_width="fill_parent"
-            android:layout_height="45dp"
-            android:layout_marginTop="15dp"
-            android:background="#f3f3f3"
-            android:paddingLeft="7dp"
-            android:paddingTop="7dp"
-            android:text="Password:"
-            android:textColor="#4C4D4F" />
 
         <Button
             android:layout_width="190dp"
