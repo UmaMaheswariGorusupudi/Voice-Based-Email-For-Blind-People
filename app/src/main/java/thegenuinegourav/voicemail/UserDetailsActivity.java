@@ -30,7 +30,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
         IsInitialVoiceFinshed = false ;
-        status.setText("Mail?");
+       // status.setText("Mail?");
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -45,12 +45,7 @@ public class UserDetailsActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 speak("Tell me your mail address? or cancel to close the application ");
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        IsInitialVoiceFinshed = true;
-                                    }
-                                }, 4000);
+                                IsInitialVoiceFinshed = true;
                             }
                         }, 4000);
                     }
@@ -75,14 +70,16 @@ public class UserDetailsActivity extends AppCompatActivity {
 
 
     private void SpeakOutDetails(){
+
+
         User user = userLocalStore.getLoggedInUser();
         From.setText(user.username);
         Password.setText((user.password));
-        speak(" your Mail is" + user.username + "and your Password is" + user.password + " say yes to confirm and proceed and no to change the mail");
+        speak(" your Mail is" + user.username + "and your Password is" + user.password + " say yes to confirm and proceed and no to change the mail and cancel to ");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                status.setText("Confirm?");
+                status.setText("Mail?");
                 IsInitialVoiceFinshed = true;
                 numberOfClicks = 2;
             }
@@ -132,7 +129,7 @@ public class UserDetailsActivity extends AppCompatActivity {
 
     private void exitFromApp()
     {
-        this.finishAffinity();
+       this.finishAffinity();
     }
 
     @Override
