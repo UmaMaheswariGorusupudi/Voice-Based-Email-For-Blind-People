@@ -30,6 +30,7 @@ public class UserDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_details);
         IsInitialVoiceFinshed = false ;
+        status.setText("Mail?");
         tts = new TextToSpeech(this, new TextToSpeech.OnInitListener() {
             @Override
             public void onInit(int status) {
@@ -39,13 +40,17 @@ public class UserDetailsActivity extends AppCompatActivity {
                         Log.e("TTS", "This Language is not supported");
                     }
                     speak("Welcome to voice mail");
-                    //status.setText("Mail?");
                     if (userLocalStore.getLoggedInUser() == null){
                        new Handler().postDelayed(new Runnable() {
                             @Override
                             public void run() {
                                 speak("Tell me your mail address? or cancel to close the application ");
-                                IsInitialVoiceFinshed = true;
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        IsInitialVoiceFinshed = true;
+                                    }
+                                }, 4000);
                             }
                         }, 4000);
                     }
@@ -67,24 +72,17 @@ public class UserDetailsActivity extends AppCompatActivity {
         numberOfClicks = 0;
     }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-    }
 
 
     private void SpeakOutDetails(){
-
-
         User user = userLocalStore.getLoggedInUser();
         From.setText(user.username);
         Password.setText((user.password));
-        speak(" your Mail is" + user.username + "and your Password is" + user.password + " say yes to confirm and proceed and no to change the mail and cancel to ");
+        speak(" your Mail is" + user.username + "and your Password is" + user.password + " say yes to confirm and proceed and no to change the mail");
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                status.setText("Mail?");
+                status.setText("Confirm?");
                 IsInitialVoiceFinshed = true;
                 numberOfClicks = 2;
             }
@@ -185,6 +183,7 @@ public class UserDetailsActivity extends AppCompatActivity {
                                  user = new User(username, password);
                                  userLocalStore.storeUserData(user);
                                  userLocalStore.setUserLoggedIn(true);
+
                                  Intent HomeIntent = new Intent(UserDetailsActivity.this,MainActivity.class);
                                  startActivity(HomeIntent);
                                  finish();

@@ -147,23 +147,6 @@ public class MainActivity extends AppCompatActivity {
                             break;
                         case 3:
                             Message.setText(result.get(0));
-                            /*status.setText("Your mail?");
-                            speak("Give ur mail address");
-                            break;
-                        case 4 :
-                            String from;
-                            from= result.get(0).replaceAll("underscore","_");
-                            from = from.replaceAll("\\s+","");
-                             Config.EMAIL=from;
-                             From.setText(from);
-                             status.setText("password?");
-                             speak("provide ur pasword");
-                             break;
-                        case 5 :
-                            String pwd;
-                            pwd = result.get(0).replaceAll("\\s+","");
-                            Config.PASSWORD = pwd;
-                            Password.setText(pwd);*/
                             status.setText("Confirm?");
                             speak("Please Confirm the mail\n To : " + To.getText().toString() + "\nSubject : " + Subject.getText().toString() + "\nMessage : " + Message.getText().toString() +"your mail "+Config.EMAIL+"your password" +Config.PASSWORD + "\nSpeak Yes to confirm");
                             break;
@@ -200,12 +183,6 @@ public class MainActivity extends AppCompatActivity {
                     case 3:
                         speak("Give me message");
                         break;
-                   /* case 4:
-                        speak("provide ur mail");
-                        break;
-                    case 5:
-                        speak("provide ur password");
-                        break;*/
                     default:
                         speak("say yes or no");
                         break;
